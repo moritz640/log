@@ -1,0 +1,130 @@
+Starting Nmap 5.21 ( http://nmap.org ) at 2014-01-12 02:20 CET
+NSE: Loaded 36 scripts for scanning.
+Initiating Ping Scan at 02:20
+Scanning targetserver.xyz (xx.xx.xx.xx) [2 ports]
+Completed Ping Scan at 02:20, 0.07s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 02:20
+Completed Parallel DNS resolution of 1 host. at 02:20, 0.00s elapsed
+Initiating Connect Scan at 02:20
+Scanning targetserver.xyz (xx.xx.xx.xx) [1000 ports]
+Discovered open port 110/tcp on xx.xx.xx.xx
+Discovered open port 53/tcp on xx.xx.xx.xx
+Discovered open port 25/tcp on xx.xx.xx.xx
+Discovered open port 443/tcp on xx.xx.xx.xx
+Discovered open port 8080/tcp on xx.xx.xx.xx
+Discovered open port 80/tcp on xx.xx.xx.xx
+Discovered open port 22/tcp on xx.xx.xx.xx
+Discovered open port 993/tcp on xx.xx.xx.xx
+Discovered open port 143/tcp on xx.xx.xx.xx
+Discovered open port 21/tcp on xx.xx.xx.xx
+Discovered open port 995/tcp on xx.xx.xx.xx
+Discovered open port 3306/tcp on xx.xx.xx.xx
+Discovered open port 1500/tcp on xx.xx.xx.xx
+Discovered open port 465/tcp on xx.xx.xx.xx
+Discovered open port 5666/tcp on xx.xx.xx.xx
+Completed Connect Scan at 02:20, 10.93s elapsed (1000 total ports)
+Initiating Service scan at 02:20
+Scanning 15 services on targetserver.xyz (xx.xx.xx.xx)
+Completed Service scan at 02:20, 19.95s elapsed (15 services on 1 host)
+NSE: Script scanning xx.xx.xx.xx.
+NSE: Starting runlevel 1 (of 1) scan.
+Initiating NSE at 02:20
+Completed NSE at 02:20, 5.41s elapsed
+NSE: Script Scanning completed.
+Nmap scan report for targetserver.xyz (xx.xx.xx.xx)
+Host is up (0.068s latency).
+rDNS record for xx.xx.xx.xx: sontore.xyz
+Not shown: 982 closed ports
+PORT     STATE    SERVICE      VERSION
+21/tcp   open     ftp          ProFTPD
+22/tcp   open     ssh          OpenSSH 5.3 (protocol 2.0)
+| ssh-hostkey: 1024 52:75:e1:ce:0a:de:22:81:7c:b1:d7:18:68:51:50:63 (DSA)
+|_2048 c0:d2:2b:a1:d9:5f:1f:c6:c7:1f:fa:e5:88:b3:14:48 (RSA)
+25/tcp   open     smtp         Postfix smtpd
+|_smtp-commands: EHLO vz2.secom.xyz.ua, PIPELINING, SIZE 10240000, VRFY, ETRN, STARTTLS, AUTH CRAM-MD5 DIGEST-MD5 PLAIN LOGIN, AUTH=CRAM-MD5 DIGEST-MD5 PLAIN LOGIN, ENHANCEDSTATUSCODES, 8BITMIME, DSN
+53/tcp   open     domain
+| dns-zone-transfer:  
+| targetserver.xyz       SOA   sontore.xyz root.sontore.xyz  
+| targetserver.xyz       TXT  
+| targetserver.xyz       NS    ns1.vz2.secom.xyz.ua          
+| targetserver.xyz       NS    ns2.vz2.secom.xyz.ua          
+| targetserver.xyz       MX    mail.targetserver.xyz          
+| targetserver.xyz       MX    mail.targetserver.xyz          
+| targetserver.xyz       A     xx.xx.xx.xx                   
+| ftp.targetserver.xyz   A     xx.xx.xx.xx                   
+| mail.targetserver.xyz  A     xx.xx.xx.xx                   
+| pop.targetserver.xyz   A     xx.xx.xx.xx                   
+| smtp.targetserver.xyz  A     xx.xx.xx.xx                   
+| www.targetserver.xyz   A     xx.xx.xx.xx                   
+|_targetserver.xyz       SOA   sontore.xyz root.sontore.xyz  
+80/tcp   open     http         nginx
+| robots.txt: has 5 disallowed entries 
+|_/admin/ /images/ /site_images/ /templates/ /link.php
+| html-title: targetserver |_Willkommen
+110/tcp  open     pop3         Dovecot pop3d
+|_pop3-capabilities: USER CAPA UIDL TOP OK(K) RESP-CODES PIPELINING STLS SASL(PLAIN LOGIN DIGEST-MD5 CRAM-MD5)
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+143/tcp  open     imap         Dovecot imapd
+|_imap-capabilities: LOGIN-REFERRALS STARTTLS ID AUTH=DIGEST-MD5 IMAP4rev1 AUTH=PLAIN ENABLE AUTH=LOGIN LITERAL+ IDLE SASL-IR AUTH=CRAM-MD5
+443/tcp  open     ssl/http     Apache httpd 2.2.25 ((CentOS))
+|_sslv2: server still supports SSLv2
+|_html-title: Site doesn't have a title (text/html; charset=UTF-8).
+445/tcp  filtered microsoft-ds
+465/tcp  open     smtp         Postfix smtpd
+|_smtp-commands: EHLO vz2.secom.xyz.ua, PIPELINING, SIZE 10240000, VRFY, ETRN, STARTTLS, AUTH CRAM-MD5 DIGEST-MD5 PLAIN LOGIN, AUTH=CRAM-MD5 DIGEST-MD5 PLAIN LOGIN, ENHANCEDSTATUSCODES, 8BITMIME, DSN
+993/tcp  open     ssl/imap     Dovecot imapd
+|_imap-capabilities: LOGIN-REFERRALS AUTH=PLAIN ID IMAP4rev1 AUTH=DIGEST-MD5 ENABLE AUTH=LOGIN LITERAL+ IDLE SASL-IR AUTH=CRAM-MD5
+995/tcp  open     ssl/pop3     Dovecot pop3d
+|_pop3-capabilities: OK(K) CAPA RESP-CODES UIDL PIPELINING USER TOP SASL(PLAIN LOGIN DIGEST-MD5 CRAM-MD5)
+1500/tcp open     vlsi-lm?
+3306/tcp open     mysql        MySQL 5.5.33a-MariaDB
+| mysql-info: Protocol: 10
+| Version: 5.5.33a-MariaDB
+| Thread ID: 86817828
+| Some Capabilities: Long Passwords, Connect with DB, Compress, ODBC, Transactions, Secure Connection
+| Status: Autocommit
+|_Salt: je;7@}uS
+5666/tcp open     tcpwrapped
+8080/tcp open     http         Apache httpd 2.2.25 ((CentOS))
+| robots.txt: has 5 disallowed entries 
+|_/admin/ /images/ /site_images/ /templates/ /link.php
+| html-title: targetserver |_Willkommen
+|_http-open-proxy: Proxy might be redirecting requests
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at http://www.insecure.org/cgi-bin/servicefp-submit.cgi :
+SF-Port1500-TCP:V=5.21%I=7%D=1/12%Time=52D1EDE7%P=x86_64-unknown-linux-gnu
+SF:%r(GetRequest,E7,"HTTP/1\.0\x20200\x20OK\r\nConnection:\x20close\r\nCon
+SF:tent-Type:\x20text/html;\x20charset=UTF-8\r\nPragma:\x20no-cache\r\nCac
+SF:he-Control:\x20no-cache\r\nExpires:\x200\r\nDate:\x20Sun,\x2012\x20Jan\
+SF:x202014\x2001:15:45\x20GMT\r\n\r\n<script\x20language='JavaScript'>loca
+SF:tion='https:///';</script>\n")%r(SSLSessionReq,20E,"\x16\x03\x03\0J\x02
+SF:\0\0F\x03\x03R\xd1\xec\xc2\xf0{\xaf\xcd\x1eg\xc7\x9c\?\x05\xc0W\xbas63\
+SF:x9e\xa00\]b\0&\xfe\x04\xb0\|\xd5\x20&\x90\xcb~\x99\xb4l\xe2\r\x8ca`\xef
+SF:H\xe2\x8d\xcc\xd1\xdbx\x8b\x03\x81\xf8\x8a\x14\x80\x8c\xb7%\n\x8b\0\n\0
+SF:\x16\x03\x03\x01\xb1\x0b\0\x01\xad\0\x01\xaa\0\x01\xa70\x82\x01\xa30\x8
+SF:2\x01\x0c\x02\t\0\xa0%\)\xa8\x92lT\x930\r\x06\t\*\x86H\x86\xf7\r\x01\x0
+SF:1\x05\x05\x000\x161\x140\x12\x06\x03U\x04\x03\x13\x0b46\.28\.68\.180\x1
+SF:e\x17\r130503124326Z\x17\r230501124326Z0\x161\x140\x12\x06\x03U\x04\x03
+SF:\x13\x0b46\.28\.68\.180\x81\x9f0\r\x06\t\*\x86H\x86\xf7\r\x01\x01\x01\x
+SF:05\0\x03\x81\x8d\x000\x81\x89\x02\x81\x81\0\xbb\x18\xc1\xaf\x01\xea\"\x
+SF:b4\xeeCAri\xfa\xbb;\xb85\xc1G\0,h\t\xcf\xa4\xe4\xe5/\|\xf6\x98\xe8t~\xe
+SF:a\xb8\xe2a\x84\xaf\x83\xc29\x999\xf24\.-\xcf\.\x95\xc0}\xd5\xd5\x95g\x8
+SF:7\x1b\x91zZ'\xd5\x92\xcd\xd0\n\x8d\xeb\x82G\xa0l7\xa1KI\xdc\x93\x19\xf8
+SF:\x8b@D\xa6\x0b\x90\xa6\xd1T,\xc7~\x91\x94\xb3'\x1fu\xa5\x12N#\xc2\xfa\x
+SF:9f\xfaP\xdd\xb04\"t\xd1\x0f\x84x\x20\xfax,\xe1\+\x01K\x02\x03\x01\0\x01
+SF:0\r\x06\t\*\x86H\x86\xf7\r\x01\x01\x05\x05\0\x03\x81\x81\0%o\r\xa5\x1e\
+SF:x86\x9b1\x84\xd9\x1cU\x98\xed\xc4\x04\xb2\x8e\x95\xb1fH=\xd7\xac\x20\x0
+SF:e\tA\r\x0c\xc5\x13N>qs}\xdc#\xdd\xf2\x16\xa7\x89\x8d\xdf\xc3\x9d\xe0n%g
+SF:\x08\x99w\xf7\xd5\xd7\x9c\xff\xb2B\x80\xc8\x8c\xbcR\xf9\xe7\xd2\xe2\x0c
+SF:I\xbd\xc6\x96u\xc4%7\x02H\xdbQ\xf0\xde\(1\xd4\xc3C\xb9\x80\x8a\xc1\0\x0
+SF:3\xef\xacn\xb7\xbb\xd2\x80/\xd5\x94\x9e\xdb\x1f\x17L\$\xec\|\x1a\xdes<\
+SF:x11\x15\xae\xeb\x83\x83\x05\"\x16\x03\x03\0\x04\x0e\0\0\0")%r(FourOhFou
+SF:rRequest,95,"HTTP/1\.0\x20301\x20Moved\x20Permanently\r\nContent-Length
+SF::\x200\r\nLocation:\x20https://46\.28\.68\.18/nice\x20ports,/Trinity\.t
+SF:xt\.bak\r\nDate:\x20Sun,\x2012\x20Jan\x202014\x2001:15:51\x20GMT\r\n\r\
+SF:n");
+Service Info: Host:  vz2.secom.xyz.ua; OS: Unix
+
+Read data files from: /usr/share/nmap
+Service detection performed. Please report any incorrect results at http://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 36.49 seconds
